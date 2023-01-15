@@ -1,0 +1,2195 @@
+/* 
+
+Н А В И Г А Ц И Я :
+
+1. ОСНОВНОЕ
+    > 1.1 ИМПОРТ ШРИФТОВ
+    > 1.2 ШАБЛОНЫ
+
+2. ШАПКА
+    > 2.1 ШАБЛОНЫ
+
+3. ДОМ
+    > 3.1 КНОПКА "ХОЧУ РЕМОНТ!"
+
+4. ПРОЕКТЫ
+    > 4.1 ГАЛЕРЕЯ
+
+5. УСЛУГИ
+
+6. КОМПАНИЯ
+
+7. КОМАНДА
+
+8. КОНТАКТЫ
+
+9. ПОДВАЛ
+    > 9.1 БЛОКИ
+    > 9.2 МЕДИА - ИКОНКИ
+    > 9.3 ПОДПИСЬ
+
+
+
+
+
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+
+
+  
+    ⬇ 1. ОСНОВНОЕ ⬇ */
+
+/* чистим все элементы от стандартных стилей */
+* {
+    margin: 0 auto;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* Отсутствие синего выделения при клике */
+}
+
+/* задаем цвета при выделении элементов */
+*::selection {
+    color: whitesmoke; /* Цвет текста */
+    background: #F69E60; /* Цвет фона */
+}
+
+.unselectable {  
+    -webkit-touch-callout: none; /* iOS Safari */  
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */  
+    -khtml-user-select: none;    /* Konqueror */  
+    -moz-user-select: none;      /* Firefox */  
+    -ms-user-select: none;       /* Internet Explorer/Edge */  
+    user-select: none;           /* Non-prefixed version, currently not supported by any browser */
+}
+
+/* задаем станадартный размер страницы */
+body, html {
+    max-width: 100%;
+    height: 100%;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+/* настраиваем тело страницы */
+body {
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    background-position: center;
+    background-size: cover;
+
+    background-color: whitesmoke;
+}
+
+/* настраиваем скроллбар Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #F69E60 whitesmoke;
+}
+/* настраиваем скроллбар Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+    width: 10%;
+}
+/* задаем фон скроллбару */
+*::-webkit-scrollbar-track {
+    background: whitesmoke;
+}
+/* задаем цвет ползунку скроллбара */
+*::-webkit-scrollbar-thumb {
+    background-color: #F69E60;
+}
+
+/*  
+    ⬇ 1.1 ИМПОРТ ШРИФТОВ ⬇
+*/
+
+/* лого на шапке страницы */
+@font-face {
+    font-family: 'LobsterTwo-B'; /* Гарнитура шрифта */
+    src: url(fonts/LobsterTwo-Bold.ttf); /* Путь к файлу со шрифтом */
+}
+/* шрифт заголовка на старте странице */
+@font-face {
+    font-family: 'RussianPunk'; /* Гарнитура шрифта */
+    src: url(fonts/RussianPunk.ttf); /* Путь к файлу со шрифтом */
+}
+/* шрифт для текста футера */
+@font-face {
+    font-family: 'SourceCodePro-Medium'; /* Гарнитура шрифта */
+    src: url(fonts/SourceCodePro-Medium.ttf); /* Путь к файлу со шрифтом */
+}
+
+/*  
+    ⬆ 1.1 ИМПОРТ ШРИФТОВ ⬆
+
+    ⬇ 1.2 ШАБЛОНЫ ⬇
+*/
+
+/* задаем контейнер страницы */
+.container {
+    width: 1200px;
+    max-width: 1360px;
+}
+/* класс, чтобы дочерний элемент шел в одну строку */
+.child {
+    display: inline-block;
+    margin-left: -.36em; /* убираем лишние пробелы */
+}
+/* убираем подчеркивание текста ссылок */
+a {
+    text-decoration: none;
+    color: black;
+    
+    transition-duration: .3s;
+}
+/* изменяем цвет наведения на ссылку */
+a:hover {
+    color: whitesmoke;
+}
+/* шрифт заголовков */
+h1, h2, h3, h4 {
+    font-family: 'Roboto', sans-serif;
+}
+/* шрифт параграфов */
+p, input, select, textarea, li, strong {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1.125em;
+}
+/* заголовки1 */
+h1 {
+    font-size: 2.5em;
+    font-weight: 500;
+}
+/* заголовки2 */
+h2 {
+    font-size: 2em;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+}
+/* заголовки3 */
+h3 {
+    font-weight: 400;
+    font-size: 1.5em;
+}
+/* заголовки4 */
+h4 {
+    font-size: 1em;
+    font-weight: 300;
+}
+/* строки списка */
+li {
+    list-style-type: none; /* Убираем маркеры у списка */
+}
+/* отступ сверху для секций */
+section {
+    padding-top: 100px;
+}
+/* убираем лишние стили для изображений */
+img {
+    pointer-events: none;
+    user-select: none;
+}
+/* особенный отступ для секции без заголовка */
+section#portfolio {
+    padding-top: 150px;
+}
+/* отступ сверху для футера */
+footer {
+    margin-top: 125px;
+}
+/* блок заголовка секций */
+.sec-title {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* ⬆ 1. ОСНОВНОЕ ⬆
+
+
+
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+
+
+    
+⬇ 2. ШАПКА ⬇ */
+
+/* задаем форму шапки */
+header {
+    width: 100%;
+    height: 50px;
+
+    position: fixed;
+    background-color: whitesmoke;
+
+    border-bottom: 1px solid #3A3A44;
+    z-index: 2;
+}
+/* лого компании на шапке */
+header #title {
+    position: fixed;
+    font-family: 'LobsterTwo-B', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2em;
+
+    top: 22.5px;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-40%, -50%);
+    
+    user-select: none;
+    -webkit-user-drag: none;
+    letter-spacing: 1.5px;
+    transition-duration: .3s;
+}
+/* наведение на ссылки шапки */
+header a:hover {
+    color: #F69E60;
+}
+/* номер телефона */
+header .mobile-call {
+    display: flex; /* используем flex для центрирования содержимого */
+    align-items: center;  /* центрируем содержимое кнопки */
+    position: fixed;
+
+    width: 184px;
+
+    top: 22.5px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: 475px;
+
+    height: 35px;
+    cursor: pointer;
+    z-index: 1;
+
+    font-family: 'LobsterTwo-B', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5em;
+}
+/* иконка телефона (для узких экранов) */
+header .mobile-call.icon {
+    align-items: center;  /* центрируем содержимое кнопки */
+    position: fixed;
+    
+    top: 38.5px;
+    left: auto;
+    right: 40px;
+    transform: translate(-50%, -50%);
+    width: 35px;
+    height: auto;
+} 
+/* наведение на иконку звонока */
+header .mobile-call:hover {
+    cursor: text;
+}
+/* отсутствие иконки телефона на пк версии */
+header .mobile-call.icon {
+    display: none;
+} 
+
+/* 
+
+    ⬇ МЕНЮ ⬇ 
+
+*/
+
+/* скрываем чекбокс */
+.hamburger-menu #menu__toggle {
+    opacity: 0;
+}
+/* стиль кнопки */
+.menu__btn {
+    display: flex; /* используем flex для центрирования содержимого */
+    align-items: center;  /* центрируем содержимое кнопки */
+    position: fixed;
+    
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: -550px;
+
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1;
+}
+/* добавление кнопки меню "гамбургера" */
+.menu__btn > span,
+.menu__btn > span::after {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    border-radius: 10px;
+}
+/* первая линия кнопки */
+.menu__btn > span::before {
+    content: '';
+    position: fixed;
+    
+    width: 10000px;
+    height: 10000px;
+
+    top: -5000px;
+    left: -5000px;
+    
+    background: black;
+    opacity: 0;
+
+    visibility: hidden;
+    transition-duration: .3s;
+
+    cursor: default;
+}
+/* вторая линия кнопки */
+.menu__btn > span::after {
+    content: '';
+    top: 7.5px;
+}   
+/* контейнер меню */
+.menu__box {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    left: -100%; /* left - меню слевой стороны | right - справой стороны | + появление меню */
+    width: 300px;
+    height: 100%;
+    margin: 0;
+    padding: 80px 0;
+    list-style: none;
+    text-align: left;
+    background-color: whitesmoke;
+    box-shadow: 4px 0px 4px rgba(0, 0, 0, .5);
+    
+    z-index: 1;
+}
+/* элементы меню */
+.menu__item {
+    display: block;
+    padding: 12px 24px;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-size: .9em;
+    font-weight: 300;
+    text-decoration: none;
+}
+/* наведение на текст меню */
+.menu__item:hover {
+    color: #F69E60;
+}
+/* затемнение страницы при открытии меню */
+#background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    background: hsla(0, 0%, 0%, 0.25);
+    visibility: hidden;
+    opacity: 0;
+}
+/* поворот элемента "гамбургера" при нажатии */
+#menu__toggle:checked ~ .menu__btn > span {
+    margin-top: 5px;
+    transform: rotate(45deg);
+}
+/* появление перекрывающего фона */
+#menu__toggle:checked ~ .menu__btn > span::before {
+    /* top: 0; */
+    transform: none;
+    visibility: visible;
+    opacity: .25;
+}
+/* затемнение страницы */
+#menu__toggle:checked ~ #background {
+    visibility: visible;
+    opacity: 1;
+}
+/* поворот элемента "гамбургера" обратно */
+#menu__toggle:checked ~ .menu__btn > span::after {
+    top: 0;
+    transform: rotate(-90deg);
+}
+/* появление меню */
+#menu__toggle:checked ~ .menu__box {
+    visibility: visible;
+    left: 0; /* left - меню слевой стороны | right - справой стороны | + контейнер меню */
+}
+/* скорость анимаций */
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+    transition-duration: .3s;
+}
+.menu__box {
+    transition-duration: .3s;
+}
+.menu__item {
+    transition-duration: .3s;
+}
+#background {
+    transition-duration: .3s;
+}
+
+/* ⬆ 2. ШАПКА ⬆
+
+
+
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+
+
+    
+    ⬇ 3. ДОМ ⬇ */
+
+/* полоса краски */
+body {
+    background: 
+        url(../img/index/home/paint-line-hf.svg) no-repeat,
+        whitesmoke;
+    width: 100%;
+    background-size: 1920px;
+    background-position-x: center;
+    background-position-y: -200px;
+}
+/* особенный отступ снизу стартового блока */
+#start {
+    padding-bottom: 155px;
+}
+/* настройка текста на старте */
+section#start h1 {
+    width: 60%;
+    font-family: 'RussianPunk';
+    text-align: center;
+    padding: 25px;
+    margin-top: 25px;
+
+    font-size: 3.5em;
+
+    letter-spacing: 2px;
+}
+/* убираем лишние переводы строк для телефона */
+br.phone {
+    display: none;
+}
+/* особенное выделение текста на старте */
+section#start .afisha h1::selection, section#start .afisha p::selection {
+    color: whitesmoke; /* Цвет текста */
+    background: black; /* Цвет фона */
+}
+/* настройка описания на старте */
+section#start .afisha p {
+    font-size: 1.25em;
+    text-align: center;
+    max-width: 600px;
+
+    margin: 0 auto;
+}
+
+/* 
+
+    ⬇  КНОПКА "ХОЧУ РЕМОНТ!" ⬇ 
+
+*/
+
+/* положене кнопки */
+section#start .feedback-form {
+    font-size: 1.25em;
+    text-align: center;
+
+    margin: 0 auto;
+    margin-top: 75px;
+}
+/* настройка стиля ссылки кнопки */
+section#start a.button {
+    font-size: 1em;
+    letter-spacing: 1.5px;
+}
+/* настройка стиля самой кнопки */
+.button, input.button {
+    padding: 1em 4em;
+    
+    border: 1px black solid;
+    border-radius: 0;
+
+    color: whitesmoke;
+    background: black;
+    font-size: 1.5em;
+    font-weight: 600;
+
+    user-select: none;
+    outline: none;
+    cursor: pointer;
+
+    transition-duration: .3s;
+    border-radius: 15px;
+}
+/* наведение на кнопку */
+.button:hover {
+    background: #f5965200;
+    color: black;
+}
+/* нажатие */
+.button:active {
+    background: #F69E60;
+}
+
+/* ⬆ 3. ДОМ ⬆
+
+
+
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+
+
+  
+    ⬇ 4. Портфолио - 4.1 ГАЛЕРЕЯ ⬇ */
+
+/* секция портфолио */
+section#portfolio {
+    padding-top: 75px;
+}
+/* галерея */
+.gallery {
+    display: flex;
+    padding: 0 10px;
+    transition: 0.3s;
+}
+/* анимация наведениея на пикчу */
+.gallery:hover .gallery__image {
+    filter: grayscale(0);
+}
+/* колонны галереи */
+.gallery__column {
+    display: flex;
+    flex-direction: column;
+    width: 33.33%;
+}
+/* бокс пикчи */
+.gallery__link {
+    margin: 3%;
+    overflow: hidden;
+    border-radius: 15px;
+}
+/* изменение непрозрачности */
+.gallery__link:hover .gallery__caption {
+    opacity: .75;
+}
+/* непрозрачность иконки при наведении */
+.gallery__link:hover .gallery__thumb::after {
+    opacity: 0;
+}
+/* блок пикчи */
+.gallery__thumb {
+    position: relative;
+}
+/* пикча блока */
+.gallery__image {
+    display: block;
+    width: 100%;
+    transition: 0.3s;
+}
+/* подпись */
+.gallery__caption {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+
+    bottom: 0;
+    left: 0;
+
+    background: black;
+    background-image: url(../img/index/portfolio/instagram-icon.svg);
+    background-repeat: no-repeat;
+    background-size: 25%;
+    background-position: center;
+
+    transition: 0.3s;
+}
+
+/* 
+
+    ⬇ ВИДЕО ⬇ 
+
+*/
+
+/* задаем отступ для контейнера видео */
+.videos {
+    padding: 0 20px;
+}
+/* настраиваем фрейм видео */
+.videos iframe {
+    width: 100%;
+    height: 480px;
+
+    border-radius: 15px;
+    -o-object-fit: cover;
+        object-fit: cover;
+}
+
+/* ⬆ 4. ПРОЕКТЫ ⬆
+
+
+
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+
+
+    ⬇ ПРЕИМУЩЕСТВА ⬇ */
+
+/* обертка блоков услуг */
+.post-wrap {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+ /* блок */
+.post-item {
+    min-height: 100%;
+    max-width: 33.3%;
+    width: 100%;
+    
+    padding: 15px;
+    cursor: pointer;
+}
+/* оставляем стандартный курсор при наведении на блок */
+.post-item:hover, .post-item a:hover {    
+    cursor: default;
+}
+ /* скорость анимации всех элементов блока */
+.post-item * {
+    transition: .25s linear;
+}
+ /* контент блока */
+.item-content {
+    padding: 10px;
+}
+ /* параметры иконки */
+.item-icon {
+    margin-bottom: 20px;
+}
+ /* иконка блока 1 */
+ .post-item .item-icon img {
+    width: 50px;
+    height: 50px;
+    user-select: none;
+    -webkit-user-drag: none;
+} 
+ /* анимация поднятия элементов */
+.post-item:hover .item-icon, .post-item:hover .item-body h3, .post-item:hover .item-body p {
+    /* transform: translateY(-8px); */
+    cursor: text;
+}
+ /* цветной круг под иконкой */
+.color-circle {
+    width: 45px;
+    height: 45px;
+
+    margin-top: -60px;
+    margin-bottom: 15px;
+    margin-left: 11px;
+
+    background: #F69E60;
+    border-radius: 50%;
+}
+ /* текст */
+.item-body {
+    font-size: .9em;
+}
+ /* заголовок3 */
+.item-body h3 {
+    font-weight: 300;
+    color: black;
+    margin-bottom: 15px;
+    transition-delay: .05s;
+}
+ /* параграф */
+.item-body p {
+    color: #3A3A44;
+    font-size: 1.15em;
+    font-weight: 100;
+    letter-spacing: 1px;
+
+    transition-delay: .1s;
+    margin: 0;
+}
+ /* подвал блока */
+.item-footer {
+    padding-top: 15px;
+}
+ /* ссылка блока */
+.link {
+    text-decoration: none;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    padding-right: 30px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: black;
+    cursor: default;
+}
+ /* полоска */
+.link:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    height: .125rem;
+    margin: auto;
+    background: #F69E60;
+    transform: scaleX(.2);
+    transform-origin: left center;
+    z-index: 0;
+    transition: .6s cubic-bezier(.6, .01, 0, 1);
+}
+ /* ссылка */
+.link span {
+    display: inline-block;
+    position: relative;
+    transform: translateX(-200%);
+    transition: .6s cubic-bezier(.6, .01, 0, 1);
+}
+
+/* ⬆ 5. УСЛУГИ ⬆
+
+
+
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+
+
+    ⬇ КАК МЫ РАБОТАЕМ ⬇ */
+
+/* отступ блока */
+.hww-wrapper {
+    margin: 0 5px;
+    position: relative;
+}
+/* настройка элементов */
+#howwework .howwework-item {
+    min-width: 25%;
+    max-width: 50%;
+    height: 300px;
+    position: relative;
+    
+    margin: 0 -2px;
+
+    margin-bottom: 50px;
+}
+/* настройка заголовков */
+.howwework-item h3, h4 {
+    width: 100%;
+    text-align: center;
+}
+/* настройка шрифта заголовков3 */
+.howwework-item h3 {
+    font-size: 1em;
+    font-weight: 300;
+}
+/* настройка шрифта заголовков4 цифр */
+.howwework-item h4.num {
+    font-weight: 500;
+    margin: auto;
+    margin-top: -55px;
+    margin-bottom: 82px;
+    padding-right: 7.5px;
+}
+/* стиль маленьког поинта */
+.howwework-item h4.num::after {
+    position: relative;
+    display: block;
+    z-index: 1;
+
+    content: "";
+    width: 20px;
+    height: 20px;
+
+    top: 25px;
+    left: 50%;
+    margin-left: -11px;
+
+    background: #F69E60;
+    border-radius: 50%;
+}
+/* стиль большого поинта */
+.howwework-item h4.num::before {
+    position: relative;
+    display: block;
+    z-index: 1;
+
+    content: "";
+    width: 50px;
+    height: 50px;
+
+    top: 80px;
+    left: 50%;
+    margin-left: -26px;
+
+    background: hsla(25, 89%, 64%, 0.5);
+    border-radius: 50%;
+}
+/* общие параметры штрихов */
+hr.hww-hatch {
+    position: absolute;
+    width: 100%;
+
+    margin-top: 49px;
+
+	border: none;
+	border-top: 1px dashed #3A3A44;
+}
+/* убираем штрихи для телефона */
+hr.hww-hatch.phone {
+    display: none;
+}
+/* штрихи верхней строки */
+hr.hww-hatch#top {
+    width: 5000px;
+
+    margin-top: 49px;
+    
+    left: 12.5%;
+}
+/* штрихи нижней строки */
+hr.hww-hatch#bottom {
+    width: 5000px;
+
+    margin-top: -301px;
+    
+    right: 12.5%;
+}
+/* положение поинтов */
+.howwework-item hr.howwework-point {
+    content: "";
+    border: 0;
+    position: absolute;
+    margin: auto;
+    margin-top: -52px;
+    margin-left: 145px;
+}
+/* настройки контента блоков */
+.howwework-item .howwework-content {
+    width: 250px;
+    height: 150px;
+
+    box-shadow:  2px 2px 2px 0 rgba(0,0,0,0.5);
+    border-radius: 15px;
+}
+/* иконка 1 элемента */
+.howwework-content#a {
+    background: 
+        url(../img/index/howwework/icons/01.svg) no-repeat
+        #fff;
+        background-size: auto 50px;
+    background-position-x: center;
+    background-position-y: 20px;
+}
+/* иконка 2 элемента */
+.howwework-content#b {
+    background: 
+        url(../img/index/howwework/icons/02.svg) no-repeat
+        #fff;
+        background-size: auto 50px;
+    background-position-x: center;
+    background-position-y: 20px;
+}
+/* иконка 3 элемента */
+.howwework-content#c {
+    background: 
+        url(../img/index/howwework/icons/03.svg) no-repeat
+        #fff;
+    background-size: auto 50px;
+    background-position-x: center;
+    background-position-y: 20px;
+}
+/* иконка 4 элемента */
+.howwework-content#d {
+    background: 
+        url(../img/index/howwework/icons/04.svg) no-repeat
+        #fff;
+    background-size: auto 50px;
+    background-position-x: center;
+    background-position-y: 20px;
+}
+/* иконка 5 элемента */
+.howwework-content#e {
+    background: 
+        url(../img/index/howwework/icons/05.svg) no-repeat
+        #fff;
+    background-size: auto 50px;
+    background-position-x: center;
+    background-position-y: 20px;
+}
+/* иконка 6 элемента */
+.howwework-content#f {
+    background: 
+        url(../img/index/howwework/icons/06.svg) no-repeat
+        #fff;
+    background-size: auto 50px;
+    background-position-x: center;
+    background-position-y: 20px;
+}
+/* иконка 7 элемента */
+.howwework-content#g {
+    background: 
+        url(../img/index/howwework/icons/07.svg) no-repeat
+        #fff;
+    background-size: auto 50px;
+    background-position-x: center;
+    background-position-y: 20px;
+}
+/* иконка 8 элемента */
+.howwework-content#h {
+    background: 
+        url(../img/index/howwework/icons/08.svg) no-repeat
+        #fff;
+    background-size: auto 50px;
+    background-position-x: center;
+    background-position-y: 20px;
+}
+/* положение заголовков */
+.howwework-content h3 {
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    justify-content: center;
+
+    padding-top: 90px;
+}
+
+/* ⬆ 5. Как мы работаем ⬆
+
+
+
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+
+
+    ⬇ 6. О КОМПАНИИ ⬇ */
+
+/* отступ блока */
+#about {
+    padding-top: 50px;
+}
+/* обертка блока */
+.wrapper {
+    width: 100%;
+    height: auto;
+
+    padding: 50px 0;
+
+    background: #3a3a43;
+}
+/* особенный контейнер */
+#about .container {
+    padding: 0 20px;
+}
+/* цвет текста */
+#about h2, #about p {
+    color: whitesmoke;
+}
+/* положене заголовка */
+#about .sec-title h2 {
+    text-align: center;
+}
+/* стиль штриха слева */
+#about .sec-title h2::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 10px;
+    margin-top: 20px;
+    margin-left: -35px;
+    border-top: whitesmoke 1px solid;
+}
+/* стиль штриха справа */
+#about .sec-title h2::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-top: whitesmoke 1px solid;
+}
+/* формат текста */
+#about .about-content .paragraph {
+    width: 350px;
+    font-size: .8em;
+
+    text-align: justify;
+}
+/* положение первого абзаца */
+.paragraph.f {
+    float: left;
+
+    margin-top: 25px;
+}
+/* положение послднего абзаца */
+.paragraph.l {
+    float: right;
+
+    margin-top: -150px;
+}
+/* параметры лого */
+.about-logo {
+    width: 400px;
+    height: auto;
+
+    padding: 50px;
+
+    border: 1px whitesmoke solid;
+    border-radius: 50%;
+}
+/* стиль полосы сверху */
+.about-logo::before {
+    content: '';
+    position: absolute;
+
+    left: 0;
+    margin-top: -51px;
+
+    width: 50%;
+    height: 1px;
+    background: whitesmoke;
+}
+/* стиль полосы снизу */
+.about-logo::after {
+    content: '';
+    position: absolute;
+
+    right: 0;
+    margin-top: 352px;
+
+    width: 50%;
+    height: 1px;
+    background: whitesmoke;
+}
+
+/* ⬆ 5.О компании ⬆
+
+
+
+
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+
+
+    ⬇ ВОПРОСЫ ⬇ */
+
+/*  */
+#faq .c{
+    width: 750px;
+    position: relative;
+    margin: auto;
+    margin-top: 25px;
+}
+/*  */
+#faq input{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity:0;
+    visibility: 0;
+}
+
+#faq h1{
+    position: relative;
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 350;
+    font-size: 1.125em;
+    text-transform: uppercase;
+
+    padding-bottom: 10px;
+
+    border-bottom: 1px solid #222222;
+}
+
+#faq label::after{
+    content:"";
+    position: absolute;
+
+    width: 25px;
+    height: 25px;
+    right: 15px;
+
+
+    background: url(../img/index/faq/arrow-icon.svg);
+    background-repeat: no-repeat;
+
+    transition-duration: .3s;
+}
+
+#faq label{
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+    outline: none;
+    
+    width: 100%;
+}
+
+#faq .p{
+    width: 100%;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+#faq .p .paragraps {
+    padding: 25px;
+}
+
+#faq .p .paragraps p {
+    width: 100%;
+
+    font-size: 1em;
+    font-weight: 200;
+    text-indent: 25px; /* Отступ первой строки */
+    text-align: justify;
+
+    padding: 2.5px 0;
+}
+/* убираем отступ сверху для первого абзаца */
+#faq .p .paragraps p:first-child {
+    padding-top: 0;
+}
+/* убираем отступ снизу для последнего абзаца */
+#faq .p .paragraps p:last-child {
+    padding-bottom: 0;
+}
+
+#faq input:checked ~ h1 label::after{
+    transform: rotate(90deg);
+}
+
+#faq input:checked ~ h1 ~ div.p{
+    max-height: 1000px;
+}
+
+#faq a:hover {
+    color: #F69E60;
+}
+    
+/* ⬆ ВОПРОСЫ ⬆
+
+
+
+
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+
+
+    ⬇ КАЛЬКУЛЯТОР ⬇ */
+
+/* иконка калькулятор слева для широких экранов */
+/* #calc::before {
+    content: '';
+    position: absolute;
+    
+    width: 600px;
+    height: 600px;
+    margin-top: -50px;
+
+    background: url(../img/index/calc/calc-background.svg);
+    background-repeat: no-repeat;
+    background-size: auto 600px;
+} */
+/* узкий контейнер для элементов контейнера */
+#calc .container {
+    width: 750px;
+}
+/* файл договора */
+.files {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 10px;
+
+    position: relative;
+}
+/* иконка скрепки */
+/* .paperclip {
+    width: 16px;
+    
+    margin-bottom: -2px;
+    margin-right: 5px;
+} */
+/* текст файла */
+.file-word {
+    cursor: pointer;
+    font-size: 1em;
+    color: #F69E60;
+
+    transition-duration: 0s;
+}
+.file-word::before {
+    content: '';
+    position: absolute;
+
+    width: 25px;
+    height: 25px;
+
+    margin-left: -20px;
+
+    background: url(../img/index/calc/paperclip.svg) no-repeat;
+    background-position-y: 2px;
+    background-size: 15px;
+    transition-duration:  0s;
+}
+/* наведение на текст файла */
+.file-word:hover {
+    color: #c4c4c4;    
+    transition-duration:  0s; 
+}
+.file-word:hover::before {
+    background: url(../img/index/calc/paperclip-hv.svg) no-repeat;
+    background-position-y: 2px;
+    background-size: 15px;
+    transition-duration:  0s;
+}
+/* отступ для секций калькулятора */
+.calc-item:nth-child(2) {
+    margin-top: 25px;
+}
+/* секции калькулятора */
+.calc-item {
+    width: 100%;
+    height: auto;
+    margin-top: 30px;
+
+    position: relative;
+}
+/* секции калькулятора */
+.calc-item:nth-child(3) {
+    width: 100%;
+    height: 100px;
+    margin-top: 5px;
+    padding-top: 25px;
+    background: whitesmoke;
+}
+/* заголовок секции */
+.calc-item-heading, .size-area-m, .work-type h3 {
+    color: #3A3A44;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+/* блок типов недвижимости */
+.estate-type-block {
+    width: 100%;
+    height: 50px;
+
+    align-items: center;
+
+    background: white;
+    border: 1px #F69E60 solid;
+    border-radius: 15px;
+    box-shadow:  2px 2px 2px 0px rgba(81, 81, 81, 0.47);
+    
+    transition-duration: .3s;
+}
+/* элементы блока типов недвижимости */
+.estate-type-block-elem {
+    text-align: center;
+    position: relative;
+    width: 33.5%;
+    height: 150%;
+    max-height: 50px;
+    margin: 0 -2.5px;
+    max-width: 250px;
+}
+/* стенки внутри блока */
+.estate-type-block-elem:not(:last-child) {
+    border-right: 1px #F69E60 solid;
+}
+/* текст типов недвиги */
+.calc-label {
+    padding: 10px 0;
+    display: block;
+    width: 100%;
+    height: 50px;
+    color: #c4c4c4;
+    border-radius: 15px;
+    
+    transition-duration: .3s;
+}
+/* индивидуальная рамка для левой кнопки */
+.calc-label.c-label-left {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+/* индивидуальная рамка для центральной кнопки */
+.calc-label.c-label-mid {
+    border-radius: 0;
+}
+/* индивидуальная рамка для правой кнопки */
+.calc-label.c-label-right {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    margin-right: -2px;
+    width: 101%;
+    padding-left: 2px;
+}
+/* наведение на текст типов недвиги */
+.calc-label:hover {
+    color: black;
+}
+/* недоступность к выделению */
+.calc-label h4::selection, .calc-label p::selection {
+    background: none;
+    color: inherit;
+}
+/* заголовок недвиги */
+.calc-label h4 {
+    font-size: 1em;
+    line-height: .9;
+}
+/* подпись недвиги */
+.calc-label p {
+    font-size: .7em;
+}
+/* прячем чекбоксы */
+[type="checkbox"]:checked,
+[type="checkbox"]:not(:checked){
+  position: absolute;
+  left: -9999px;
+}
+/* выделение выбранного типа недвиги */
+.calc-input#newbuild:checked ~ .estate-type-block .estate-type-block-elem .calc-label#from-newbuild,
+.calc-input#secondarywr:checked ~ .estate-type-block .estate-type-block-elem .calc-label#from-secondarywr,
+.calc-input#secondarywor:checked ~ .estate-type-block .estate-type-block-elem .calc-label#from-secondarywor {
+    background: #F69E60;
+    color: black;
+}
+/* блок видов услуг */
+.work-types {
+    width: 100%;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 50px;
+    position: relative;
+}
+/* виды недвижимости */
+.work-types .work-type {
+    width: 230px;
+    height: 30px;
+    padding-top: 4px;
+    padding-left: 10px;
+
+    margin-bottom: 15px;
+    margin-right: 15px;
+
+    background: white;
+    border-radius: 10px;
+    box-shadow:  2px 2px 2px 0px rgba(81, 81, 81, 0.47);
+}
+/* иконка галочки перед заголовком вида */
+.work-types .work-type h3::before {
+    content: '';
+
+    width: 20px;
+    height: 20px;
+
+    margin-top: 5px;
+    padding-right: 22.5px;
+
+    background: url(../img/index/calc/check-icon.svg) no-repeat;
+    background-size: 16px auto;
+    background-position-y: 3px;
+}
+/* положение второй строки у правой стенке */
+.left-line {
+    float: left;
+    margin-left: 5px;
+}
+/* положение второй строки у правой стенке */
+.right-line {
+    margin-left: 35px;
+    margin-right: -15px;
+}
+/* выравнивание слева для заголовка видов услуг */
+.self-work-types-block h3 {
+    text-align: left;
+}
+/* прячем по умолчанию блок видов услуг для каждого типа недвиги */
+.self-work-types-block {
+    position: absolute;
+    width: 750px;
+
+    top: 75px;
+
+    margin-top: 30px;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition-duration: .3s;
+}
+/* появление видов услуг для новостройки */
+#newbuild:checked ~ #for-newbuild,
+#secondarywr:checked ~ #for-secondarywr,
+#secondarywor:checked ~ #for-secondarywor {
+    visibility: visible;
+    opacity: 1;
+}
+/* отступ места для появившихся видов услуг */
+.calc-input:checked ~ .estate-type-block {
+    margin-bottom: 225px;
+}
+/* положение ползунка размера площади */
+.size-area {
+    float: right;
+}
+/* поле площади */
+#size-area-number {
+    -moz-appearance: textfield;
+    border: none;
+    background: none;
+    width: auto;
+    max-width: 50px;
+}
+/* единица площади */
+.size-area-m {
+    padding-right: 10px;
+}
+/* блок ползунка площади */
+.calc-range input[type=range] {
+    background: whitesmoke;
+}
+
+/* Chrome, Yandex, Safary: WHAT */
+input[type=range] {
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    width: 100%; /* Specific width is required for Firefox. */
+    background: transparent; /* Otherwise white in Chrome */
+}
+/* Chrome, Yandex, Safary: кнопка */
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+
+    height: 25px;
+    width: 25px;
+
+    margin-top: -10px; /* specify margin in Chrome, but in Firefox and IE it is automatic */
+
+    background: #F69E60;
+    box-shadow: 2px 2px 2px 0px rgba(81, 81, 81, 0.5);
+
+    border: 5px solid whitesmoke;
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+/* Chrome, Yandex, Safary: трек */
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 6px;
+    
+    /* background: #F69E60;
+    box-shadow: 2px 2px 2px 0px rgba(81, 81, 81, 0.5); */
+    
+    background-color: #F69E60;
+    box-shadow: inset 0px 1px 2px rgba(0,0,0,0.25);
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+/* Chrome, Yandex, Safary: отсутствие выделения (если Tab'ом кликать без мышки) */
+input[type=range]:focus {
+    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+/* ДОРАБОТАТЬ */
+
+/* IE: кнопка */
+input[type=range]::-ms-thumb {
+    height: 25px;
+    width: 25px;
+
+    background: #F69E60;
+    box-shadow: 2px 2px 2px 0px rgba(81, 81, 81, 0.5);
+
+    border: 5px solid whitesmoke;
+    border-radius: 50%;
+    
+    cursor: pointer;
+}
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+}
+  input[type=range]::-ms-fill-lower {
+    background: #2a6495;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+  input[type=range]:focus::-ms-fill-lower {
+    background: #3071a9;
+}
+  input[type=range]::-ms-fill-upper {
+    background: #3071a9;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+  input[type=range]:focus::-ms-fill-upper {
+    background: #367ebd;
+}
+
+/* Mozila: кнопка */
+.calc-range input[type=range]::-moz-range-thumb {
+    height: 15px;
+    width: 15px;
+
+    cursor: pointer;
+
+    background: #F69E60;
+    box-shadow: 2px 2px 2px 0px rgba(81, 81, 81, 0.5);
+    border: 5px solid whitesmoke;
+    border-radius: 50%;
+}
+/* Mozila: трек  */
+.calc-range input[type="range"]::-moz-range-track, input[type="range"]::-moz-range-progress {
+    border-radius: 5px;
+    height: 6px;
+}
+/* Mozila: заполненая часть трека */
+.calc-range input[type="range"]::-moz-range-progress {        
+    background-color: #F69E60; 
+}    
+/* Mozila: пустая часть трека */
+.calc-range input[type="range"]::-moz-range-track {          
+    background-color: whitesmoke;
+    box-shadow: inset 0px 1px 2px rgba(0,0,0,0.25);
+}
+
+.noUi-connect {
+	background-color: whitesmoke;
+    box-shadow: inset 0px 1px 2px rgba(0,0,0,0.25);
+}
+
+.noUi-target {
+	background-color: #F69E60;
+    box-shadow: none;
+	border: none;
+	border-radius: 100px;
+	height: 5px;
+    margin: 5px 0;
+}
+
+.noUi-handle::after,
+.noUi-handle::before {
+	display: none;
+}
+
+.noUi-handle {
+    display: block;
+}
+
+.noUi-handle-upper {
+    display: none;
+    visibility: hidden;
+}
+
+
+.noUi-handle {
+	border-radius: 100%;
+	background-color: #F69E60;
+	border: 5px solid whitesmoke;
+    box-shadow: 2px 2px 2px 0px rgba(81, 81, 81, 0.5);
+}
+
+.noUi-horizontal .noUi-handle {
+    width: 25px;
+    height: 25px;
+	top: -10px;
+    margin-right: 7.5px;
+}
+
+.noUi-horizontal .noUi-handle-upper {
+	right: 0;
+}
+
+/* штрихи */
+.step-hatch {
+    margin: 15px 0;
+    margin-left: 67.5px;
+	padding: 0;
+
+	height: 12.5px;
+
+	border: none;
+
+	background-image: linear-gradient(90deg, #c4c4c4 0, whitesmoke 2px);
+
+	background-size: 14.90% 100%;
+    
+}
+/* блок отправки */
+#send {
+    width: 100%;
+    height: 100px;
+
+    padding: 25px;
+
+    background: #F69E60;
+    box-shadow: 2px 2px 2px 0px rgba(81, 81, 81, 0.5);
+
+    border-radius: 15px;
+}
+/* изменение стиля при выделении */
+#policy::selection, #policy a::selection {
+    color: #F69E60;
+    background: whitesmoke;
+}
+/* текст пользовательского соглашения */
+#policy {
+    float: left;
+    
+    padding: 17.5px 0;
+
+    font-size: .85em;
+    color: whitesmoke;
+}
+/* стиль ссылки */
+#policy a {
+    color: whitesmoke;
+    text-decoration: underline;
+}
+/* наведение на ссылку */
+#policy a:hover {
+    color: #c4c4c4;
+}
+.or-button::selection {
+    background: none;
+    color: inherit;
+}
+/* кнопка отправки */
+.or-button {
+    float: right;
+
+    width: 250px;
+    height: 50px;
+
+    background: whitesmoke;
+    border: 1px whitesmoke solid;
+    border-radius: 15px;
+
+    /* box-shadow: 2px 2px 2px 0px rgba(81, 81, 81, 0.5); */
+
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #F69E60;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+
+    padding: 12.5px 0;
+
+    cursor: pointer;
+    transition-duration: .3s;
+}
+/* наведение на кнопку */
+.or-button:hover {
+    color: whitesmoke;
+    background: #F69E60;
+}
+/*  */
+#popup-open-close:checked ~ #popup {
+    visibility: visible;
+    opacity: 1;
+}
+/* общие парамаетры popup'а */
+#popup {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 99999;
+
+    width: 100%;
+    height: 100%;
+    
+    top: 0;
+    left: 0;
+
+    background: rgba(0, 0, 0, 0.5);
+    transition-duration: .3s;
+}
+/* "контейнер" popup'а */
+.popup-content {
+    /* position: absolute; */
+    width: 1000px;
+    height: 500px;
+
+    padding: 25px 0;
+
+    /* top: 25%; */
+    transform: translate(0%, 100px);
+
+    background: whitesmoke;
+    border-radius: 15px;
+}
+/* кнопка закрытия */
+.popup-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 25px;
+    height: 25px;
+    margin: 10px;
+
+    background: url(../img/index/calc/close-icon.svg);
+
+    cursor: pointer;
+    transition-duration: .3s;
+}
+/* наведение кнопки закрытия */
+.popup-close:hover {
+    transform: rotate(90deg);
+}
+.popup-label {
+    position: relative;
+}
+/* введение значений */
+.popup-input {
+    width: 100%;
+    position: relative;
+
+    padding-bottom: 5px;
+
+    border: none;
+    border-bottom: 1px #3A3A44 solid;
+    
+    background: whitesmoke;
+}
+.popup-input._error {
+    border: 2px #F69E60 solid;
+    background: red;
+    width: 100px;
+    height: 100px;
+}
+.necessary {
+    position: absolute;
+
+    opacity: 0;
+
+    top: -2.5px;
+    left: 40px;
+    color: #F69E60;
+}
+#for-last-name .necessary {
+    left: 145px;
+}
+#for-phone .necessary {
+    left: 75px;
+}
+#name-block .popup-input {
+    width: 45%;
+}
+/* строки */
+.popup-line-element {
+    width: 650px;
+    height: 20px;
+
+    margin: 50px auto;
+    
+    align-items: center;
+}
+/* блок имени */
+#name-block {
+
+}
+/* поле для ввода */
+.input-field {
+
+}
+/* имя */
+#first-name {
+
+}
+/* фамилия */
+#last-name {
+    float: right;
+}
+/* телефон */
+#phone-block {
+
+}
+/* коммет */
+#comment-block {
+
+}
+/*  */
+.popup-textarea {
+
+}
+#send-block {
+    text-align: center;
+}
+.or-button#sender-button {
+    margin: 25px 0;
+    float: none;
+    color: whitesmoke;
+    background: #F69E60;
+    border: 1px #F69E60 solid;
+}
+.or-button#sender-button:hover {
+    color: #F69E60;
+    background: whitesmoke;
+}
+#send-block p {
+    font-size: 1em;
+    color: #c4c4c4;
+}
+#send-block p a {
+    color: #c4c4c4;
+    text-decoration: underline;
+
+    transition-duration: .3s;
+}
+#send-block p a:hover {
+    color: #F69E60;
+}
+
+    
+/* ⬆ КАЛЬКУЛЯТОР ⬆
+
+
+
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+
+
+    ⬇ ЦЕНЫ ⬇ */
+  
+section#price .gallery__thumb {
+    width: 350px;
+    height: 450px;
+
+    border: 1px black solid;
+    border-radius: 15px;
+}
+
+section#price .gallery__thumb#price-icon-a {
+    background: 
+        url(../img/index/price/1-standart.svg) no-repeat;
+    background-size: auto 50px;
+    background-position-x: center;
+    background-position-y: 50px;
+}
+
+section#price .gallery__thumb#price-icon-b {
+    background: 
+        url(../img/index/price/2-comfort.svg) no-repeat;
+    background-size: auto 50px;
+    background-position-x: center;
+    background-position-y: 50px;
+}
+
+section#price .gallery__thumb#price-icon-c {
+    background: 
+        url(../img/index/price/3-premium.svg) no-repeat;
+    background-size: auto 50px;
+    background-position-x: center;
+    background-position-y: 50px;
+}
+
+section#price .gallery__thumb {
+    color: black;
+    cursor: default;
+    text-align: center;
+}
+
+section#price .gallery__thumb h3:hover, section#price .gallery__thumb p:hover  {
+    cursor: text;
+}
+
+section#price .gallery__thumb h3 {
+    margin-top: 125px;
+
+    font-weight: bold;
+}
+
+section#price .gallery__thumb p#colored-price {
+    color: #F69E60;
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+section#price .gallery__thumb p#colored-price::before {
+    content: '₽';
+    position: absolute;
+    margin-top: 3px;
+    margin-left: -12.5px;
+    font-size: .5em;
+}
+
+section#price .gallery__thumb p#colored-price::after {
+    content: '/м²';
+    position: absolute;
+    color: #777777;
+    margin-top: 13px;
+    margin-left: 2.5px;
+    font-size: .5em;
+}
+
+section#price .gallery__thumb p:not(p#colored-price) {
+    width: 300px;
+    margin-top: 25px;
+    font-weight: 300;
+}
+
+/* ⬆ ЦЕНЫ ⬆
+
+
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+
+
+    ⬇ КНОПКА ⬇ */
+
+section#button .feedback-form a.button {
+    padding: 25px 200px;
+    background: #F69E60;
+    border:1px #F69E60 solid;
+    color: whitesmoke;
+}
+
+section#button .feedback-form a.button:hover {
+    background: whitesmoke;
+    color: #F69E60;
+}
+
+section#button .feedback-form {
+    text-align: center;
+}
+
+/* ⬆ КНОПКА ⬆
+
+
+
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+
+
+    ⬇ ПОДВАЛ ⬇ */
+
+
+footer .container {
+    width: 768px;
+}
+ 
+/* общее */
+footer {
+    width: 100%;
+    padding: 50px 0;
+
+    background-color: #222222;
+}
+
+/* 
+    ⬇ 9.1 БЛОКИ ⬇
+
+ */
+
+/* обертка колонн */
+.colomn-four-wrap {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* колонны */
+.colomn-four-item {
+    width: 33.3%;
+    margin: 0;
+    margin-bottom: 25px;
+    text-align: center;
+    padding: 0 25px;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    margin-top: 0 auto;
+}
+
+.content h4 {
+    font-size: 1em;
+    color: whitesmoke;
+    margin: 10px 0;
+    line-height: 2;
+    letter-spacing: 2px;
+}
+
+footer li {
+    margin-bottom: 10px;
+}
+
+footer li a:not(:last-child) {
+    margin-right: 5px;
+}
+
+footer a {
+    color: #777777;
+    
+    /* font-family: 'SourceCodePro-Medium', 'Courier New', Courier, monospace; */
+    font-size: .9em;
+    
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+    transition-duration: .3s;
+}
+
+footer a:hover {
+    color: #F69E60;
+}
+
+ /* параметры иконки */
+ footer .item-icon {
+    width: 35px;
+    height: 35px;
+    background-color: #F69E60;
+
+    text-align: center;
+    border-radius: 50%;
+
+    padding-top: 5px;
+}
+
+ /* иконка */
+ footer .item-icon:before {
+    content: "";
+    font-family: FontAwesome;
+    color: whitesmoke;
+    font-size: 15px;
+}
+
+/* 
+
+    ⬆ 9.1 БЛОКИ ⬆
+
+    ⬇ 9.2 МЕДИА - ИКОНКИ ⬇ с сайта https://fontawesome.com/v5.15/icons/ 
+
+ */
+
+ /* иконка instagram */
+ footer .item-icon.instagram:before {
+    content: "\f16d";
+}
+
+ /* иконка whatsapp */
+ footer .item-icon.whatsapp:before {
+    content: "\f232";
+}
+
+ /* иконка youtube */
+ footer .item-icon.youtube:before {
+    content: "\f167";
+}
+
+ /* иконка vkontacte */
+ footer .item-icon.vkontacte:before {
+    content: "\f189";
+}
+
+/* 
+
+    ⬆ 9.2 МЕДИА - ИКОНКИ ⬆
+    
+    ⬇ 9.3 ПОДПИСЬ ⬇
+
+ */
+
+.footer-down hr {
+    color: #777777;
+    height: 1px;
+    margin-bottom: 25px;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+}
+
+.footer-down {
+    width: 100%;
+
+    text-align: center;
+    font-weight: 600;
+}
+
+.footer-down p span {
+    color: #AAAAAA;
+    line-height: 2.2;
+
+    
+    font-family: 'SourceCodePro-Medium', 'Courier New', Courier, monospace;
+    font-size: .8em;
+    
+    letter-spacing: 1.5px;
+    transition-duration: .3s;
+}
+
+.footer-down p a {
+    font-size: .7em;
+}
+
+
+footer p br {
+    display: none;
+}
